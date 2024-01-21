@@ -1,3 +1,6 @@
+import pandas as pd
+import numpy as np
+
 class Moons():
     
     def __init__(self):
@@ -12,7 +15,23 @@ class Moons():
         moon_df = pd.read_sql(query, connectable)
         
         self.data = moon_df
-        
+        self.name = moon_df["moon"]
+
+    
+    def moon_info(self, moon_name, attribute = None):
+        moon_row = self.data[self.data["moon"] == moon_name]
+        info = {
+        "period" : moon_row["period_days"].iloc[0],
+        "distance" : moon_row["distance_km"].iloc[0],
+        "radius" : moon_row["radius_km"].iloc[0],
+        "mag" : moon_row["mag"].iloc[0],
+        "mass" : moon_row["mass_kg"].iloc[0],
+        "group" : moon_row["group"].iloc[0],
+        "ecc" : moon_row["ecc"].iloc[0],
+        "inclination" : moon_row["inclination_deg"].iloc[0]}
+        if attribute in info:
+            print(f"The {attribute} of '{moon_name}' is {info[attribute]}.")
+            
     def regression(self):
         
         T_squared = ((self.data["period_days"]) * 24 * 60 * 60)**2
@@ -49,3 +68,5 @@ class Moons():
         
 moon_instance = Moons()
 moon_instance.regression()
+search_for_moon = "Ganymede"
+moon_info = moon_instance.moon_info(search_for_moon, attribute = "ecc")
