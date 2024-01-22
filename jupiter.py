@@ -53,11 +53,16 @@ class Moons():
         
         return self.data.corr()
     
-    def plots(self, X, Y):
+    def scatterplots(self, X, Y):
         
         # plots a scatter graph of two chosen characteristics 
         
         sns.scatterplot(x=X, y=Y, data=self.data)
+        plt.show()
+        
+    def catplots(self, X, Y, O):
+        
+        sns.catplot(data=self.data, x=X, y=Y, order = O)
         plt.show()
         
     def stats(self):
@@ -89,7 +94,7 @@ class Moons():
         from sklearn.model_selection import train_test_split
         x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_state=42) 
         
-        # using the hyperparameter of  
+        # using the hyperparameter of fit_intercept = False to force it through the origin as when the period is zero the distance_km will also be zero
         
         from sklearn import linear_model
         model = linear_model.LinearRegression(fit_intercept=False)
@@ -114,14 +119,3 @@ class Moons():
         from sklearn.metrics import r2_score, mean_squared_error
 
         print(f"r2_score: {r2_score(y_test, pred)}")
-        
-    
-        
-moon_instance = Moons()
-moon_instance.regression()
-
-#moon_instance.moon_info_specific("Ganymede", attribute = "period")
-#moon_instance.plots(X = "period_days", Y = "mag")
-#moon_instance.moon_info("Ganymede")
-#moon_instance.correlations()
-#moon_instance.stats()
