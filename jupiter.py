@@ -16,7 +16,7 @@ class Moons():
         moon_df = pd.read_sql(query, connectable)
         
         # renaming the columns so the user can type in easier names
-        moon_df = moon_df.rename(columns={"period_days": "period", "distance_km" : "distance", "radius_km" : "radius", "mag":"apparent magnitude", "mass_kg":"mass","ecc":"eccentricity","inclination_deg":"inclination"})
+        moon_df = moon_df.rename(columns={"period_days": "period", "distance_km" : "distance", "radius_km" : "radius", "mag":"apparent magnitude", "mass_kg":"mass","ecc":"eccintricity","inclination_deg":"inclination"})
         
         
         self.data = moon_df
