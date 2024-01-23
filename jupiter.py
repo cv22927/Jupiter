@@ -117,7 +117,7 @@ class Moons():
         mass = (4*(np.pi**2))/((6.67*(10**-11)*gradient))
         print(mass)
 ​
-        # finding the r^2 score to show how closely the model agrees with the data
+        # finding  r^2 score to show how closely the model agrees with the data
         from sklearn.metrics import r2_score, mean_squared_error
 ​
         print(f"r2_score: {r2_score(y_test, pred)}")
