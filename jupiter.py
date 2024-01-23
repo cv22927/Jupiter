@@ -29,14 +29,14 @@ class Moons():
         
         moon_row = self.data.loc[moon_name]
         info = {
-        "period" : moon_row["period_days"],
-        "distance" : moon_row["distance_km"],
-        "radius" : moon_row["radius_km"],
-        "apparent magnitude" : moon_row["mag"],
-        "mass" : moon_row["mass_kg"],
+        "period_days" : moon_row["period_days"],
+        "distance_km" : moon_row["distance_km"],
+        "radius_km" : moon_row["radius_km"],
+        "mag" : moon_row["mag"],
+        "mass_kg" : moon_row["mass_kg"],
         "group" : moon_row["group"],
-        "eccentricity" : moon_row["ecc"],
-        "inclination" : moon_row["inclination_deg"]}
+        "ecc" : moon_row["ecc"],
+        "inclination_deg" : moon_row["inclination_deg"]}
         
         print(f"The {attribute} of '{moon_name}' is {info[attribute]}.")
         
