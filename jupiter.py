@@ -64,7 +64,7 @@ class Moons():
     def catplots(self, X, Y, K, O):
         # plots catogorical graph to show how the groups of moons varies         
         sns.catplot(data=self.data, x=X, y=Y, kind=K, order = O)
-        plt.title
+        plt.title(f" {Y} against {X}")
         plt.show()
         
     def stats(self):
@@ -108,6 +108,7 @@ class Moons():
         import seaborn as sns
         sns.relplot(data=self.data,x="a_cubed",y="T_squared")
         plt.plot(x_test, pred, color='cyan', linewidth = 0.5)
+        plt.title("Linear relationship between T^2 and a^3")
         plt.xlabel('Distance (a)^3 / m^3')
         plt.ylabel('Period^2 / s^2')
         plt.show()
