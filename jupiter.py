@@ -62,7 +62,7 @@ class Moons():
         plt.show()
         
     def catplots(self, X, Y, K, O):
-        
+        # plots catogorical graph to show how the groups of moons varies         
         sns.catplot(data=self.data, x=X, y=Y, kind=K, order = O)
         plt.title
         plt.show()
@@ -116,7 +116,7 @@ class Moons():
         
         gradient = model.coef_[0]
         mass = (4*(np.pi**2))/((6.67*(10**-11)*gradient))
-        print(f"The approximated mass of Jupiter is {mass})
+        print(f"The approximated mass of Jupiter is {mass}")
         
         # finding  r^2 score to show how closely the model agrees with the data
         from sklearn.metrics import r2_score, mean_squared_error
