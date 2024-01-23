@@ -38,7 +38,7 @@ class Moons():
         "ecc" : moon_row["ecc"],
         "inclination_deg" : moon_row["inclination_deg"]}
         
-        print(f"The {attribute} of '{moon_name}' is {info[attribute]}.")
+        print(f"The {attribute} of {moon_name} is {info[attribute]}.")
         
     def moon_info(self, moon_name):
         
@@ -58,18 +58,20 @@ class Moons():
         # plots a scatter graph of two chosen characteristics 
         
         sns.scatterplot(x=X, y=Y, data=self.data)
+        plt.title(f" {Y} against {X}") 
         plt.show()
         
-    def catplots(self, X, Y, O):
+    def catplots(self, X, Y, K, O):
         
-        sns.catplot(data=self.data, x=X, y=Y, order = O)
+        sns.catplot(data=self.data, x=X, y=Y, kind=K, order = O)
+        plt.title 
         plt.show()
         
     def stats(self):
         
         # returns a statistical summary of the data set
         
-        print(moon_df.describe())
+        print(self.data.describe())
         
     
     def regression(self):
