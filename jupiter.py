@@ -15,6 +15,10 @@ class Moons():
         query = "moons"
         moon_df = pd.read_sql(query, connectable)
         
+        # renaming the columns so the user can type in easier names
+        moon_df = moon_df.rename(columns={"period_days": "period", "distance_km" : "distance", "radius_km" : "radius", "mag":"apparent magnitude", "mass_kg":"mass","ecc":"eccentricity","inclination_deg":"inclination"})
+        
+        
         self.data = moon_df
         
         # storing the names of the moons as an attribute and setting them to the index of the data frame in order to extract data from 1 moon
@@ -29,20 +33,20 @@ class Moons():
         
         moon_row = self.data.loc[moon_name]
         info = {
-        "period_days" : moon_row["period_days"],
-        "distance_km" : moon_row["distance_km"],
-        "radius_km" : moon_row["radius_km"],
-        "mag" : moon_row["mag"],
-        "mass_kg" : moon_row["mass_kg"],
+        "period" : moon_row["period"],
+        "distance" : moon_row["distance"],
+        "radius" : moon_row["radius"],
+        "apparent magnitude" : moon_row["apparent magnitude"],
+        "mass" : moon_row["mass"],
         "group" : moon_row["group"],
-        "ecc" : moon_row["ecc"],
-        "inclination_deg" : moon_row["inclination_deg"]}
+        "eccintricity" : moon_row["eccintricity"],
+        "inclination" : moon_row["inclination"]}
         
         print(f"The {attribute} of {moon_name} is {info[attribute]}.")
         
     def moon_info(self, moon_name):
         
-        # returning all the data on each moon if all the information is wanted 
+        # returning all the data on each moon if all the information is wanted
         
         moon_info = self.data.loc[moon_name]
         return moon_info
